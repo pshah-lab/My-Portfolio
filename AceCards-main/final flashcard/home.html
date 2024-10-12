@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AceCards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/1e6899fc8f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="resources/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="flashcards.html">Flashcards</a></li>
+                    <li><a href="#">Decks</a></li>
+                    <li><a href="quiz.html">AceQuiz</a></li>
+                </ul>
+            </nav>
+            <div class="header-text">
+                <h1>Welcome to <span class="Text"></span></h1>
+                <p>Join us as we explore the future of digital learning <br>and revolutionize the way you study.</p>
+            </div>
+        </div>
+    </div>
+
+<!-- --------------------Features------------------------>
+<div id="features">
+    <div class="container">
+        <h1 class="sub-title">Features</h1>
+        <div class="features-list">
+            <div>
+                <i class="fa-regular fa-note-sticky"></i>
+                <h2>Flashcard Creation</h2>
+                <p>Quickly create and customize About with text, images, and multimedia elements to tailor your study materials.</p>
+                <!-- <a href="#">Learn More</a> -->
+            </div>
+            <div>
+                <i class="fa-solid fa-layer-group"></i>
+                <h2>Deck Management</h2>
+                <p>Organize and manage your About into decks for efficient studying and easy retrieval of relevant topics.</p>
+                <!-- <a href="#">Learn More</a> -->
+            </div>
+            <div>
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <h2>Quiz Sessions </h2>
+                <p>Engage in interactive quiz sessions to test your knowledge and reinforce learning through dynamic question-answer sessions.</p>
+                <!-- <a href="#">Learn More</a> -->
+            </div>
+            <div>
+                <i class="fa-solid fa-bars-progress"></i>
+                <h2>Progress Tracking and Management</h2>
+                <p>Monitor your study progress over time with detailed statistics and analytics to identify areas of improvement and track your learning journey.</p>
+                <!-- <a href="#">Learn More</a> -->
+            </div>
+            <div>
+                <i class="fa-solid fa-bell"></i>
+                <h2>Integrated Reminder System</h2>
+                <p>Set personalized study reminders and notifications to stay on track with your study schedule and ensure consistent engagement with AceCards' learning materials.</p>
+                <!-- <a href="#">Learn More</a> -->
+            </div>
+            <div>
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h2>Multi-platform Accessibility</h2>
+                <p>Access AceCards seamlessly across various devices, including desktop computers, laptops, tablets, and smartphones, for uninterrupted studying anytime, anywhere.</p>
+                <!-- <a href="#">Learn More</a> -->
+            </div> 
+        </div>
+    </div>
+</div>
+
+<!-- --------------------facts------------------------>
+<div id="facts">
+    <div class="container">
+        <h1 class="sub-title">Fun Facts About Using Flashcards</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="resources/work-1.png" alt="">
+                <div class="layer">
+                    <h3>Increased Engagement</h3>
+                    <p>Interactive flashcard sessions lead to 30% higher engagement levels among learners, fostering deeper understanding and mastery of subjects.</p>
+                </div>
+            </div>
+            <div class="work">
+                <img src="resources/work-2.png" alt="">
+                <div class="layer">
+                    <h3>Self-Assessment Benefits</h3>
+                    <p>80% of flashcard users report that self-assessment with flashcards helps them identify areas of weakness and track their progress more accurately.</p>
+                </div>
+            </div>
+            <div class="work">
+                <img src="resources/work-3.png" alt="">
+                <div class="layer">
+                    <h3>Personalized Learning</h3>
+                    <p>Customizable flashcards cater to individual learning styles, with 8 out of 10 users adapting their study materials to suit their preferences.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ------------------------contact------------------------------>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <div class="sub-title">Want to get study tips and latest updates?</div>
+                <p><i class="fa-solid fa-paper-plane"></i>acecardsofficial@gmail.com</p>
+                <p><i class="fa-solid fa-location-dot"></i>Pune, India</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-twitter-square"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+                <span id="msg"> </span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright © 2024</p>
+    </div>
+</div>
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname) {
+        for (tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for (tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
+<script>
+    var sidemeu=document.getElementById("sidemenu");
+    function openmenu(){
+        sidemeu.style.right="0";
+    }
+    function closemenu() {
+        sidemeu.style.right= "-200px";
+    }
+</script>
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwxdF0d0G48HEj4iZkhE8HhZdjkQSzNTdaobAlV_LL0lp07PuCKyvXYh6zCCYLifowo7w/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg= document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML="Subscribed successfully";
+            setTimeout(function(){
+                msg.innerHTML=""
+            },5000)
+            form.reset()
+        }
+    )
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+
+<script>
+    const div = document.querySelector(".Text");
+    const text = "AceCards!";
+
+    function TextTypingEffect(element, text, i = 0) {
+      element.textContent += text[i];
+      if(i===text.length-1){
+        return;
+      }
+
+      setTimeout(()=>TextTypingEffect(element, text,i+1),150);
+
+      
+    }
+
+    TextTypingEffect(div, text);
+  </script>
+</body>
+</html>
