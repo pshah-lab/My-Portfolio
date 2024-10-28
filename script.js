@@ -93,7 +93,7 @@ gsap.from(".center-part1", {
 });
 
 tl.from(".center-part2 img", {
-  y: 100,
+  y: 50,
   opacity: 0,
   duration: 0.6,
 });
@@ -134,45 +134,11 @@ window.addEventListener("mousemove", function (dets) {
 
 gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener("DOMContentLoaded", function () {
-  const projectLink = document.querySelector('nav a[href=".project"]');
-  const projectsSection = document.getElementById("projects");
-
-  projectLink.addEventListener("click", function (e) {
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
     e.preventDefault();
-    projectsSection.scrollIntoView({ behavior: "smooth" });
-  });
-});
-
-const aboutLink = document.querySelector('nav a[href=".center-part1"]');
-const aboutSection = document.getElementById("center");
-
-aboutLink.addEventListener("click", function (e) {
-  e.preventDefault();
-  aboutSection.scrollIntoView({ behavior: "smooth" });
-});
-
-const contactLink = document.querySelector('nav .part2 a[href=".social1"]');
-
-const footer = document.getElementById("footer");
-
-contactLink.addEventListener("click", function (event) {
-  event.preventDefault();
-  footer.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  gsap.from(".footer-container", {
-    scrollTrigger: {
-      trigger: ".footer-container",
-      start: "top bottom",
-      toggleActions: "play none none none",
-    },
-    opacity: 0,
-    duration: 1,
-    ease: "power2.out",
+    document.querySelector(this.getAttribute("href")).scrollIntoView({
+      behavior: "smooth",
+    });
   });
 });
