@@ -297,9 +297,7 @@ canvas {
 @media (min-width: 768px) {
     
 
-    #cursor{
-      display: none;
-    }
+   
     
     
   nav {
@@ -381,9 +379,7 @@ canvas {
 }
 
 @media (min-width: 1024px) {
-    #cursor{
-        display: none;
-      }
+  
   .card-container {
     grid-template-columns: repeat(3, 1fr);
   }
