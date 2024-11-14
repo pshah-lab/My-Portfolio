@@ -1,3 +1,9 @@
+window.addEventListener("load", function () {
+  // Hide the loader and display content
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("content").style.display = "block";
+});
+
 const canvas = document.getElementById("starsCanvas");
 const ctx = canvas.getContext("2d");
 let starsArray = [];
