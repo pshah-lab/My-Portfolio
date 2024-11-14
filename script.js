@@ -3,14 +3,12 @@ const ctx = canvas.getContext("2d");
 let starsArray = [];
 let numStars = 300;
 
-// Adjust canvas size
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
 resizeCanvas();
 
-// Star object
 class Star {
   constructor(x, y, size, speed) {
     this.x = x;
@@ -93,7 +91,7 @@ gsap.from(".center-part1", {
 });
 
 tl.from(".center-part2 img", {
-  y: 50,
+  y: 100,
   opacity: 0,
   duration: 0.6,
 });
@@ -134,11 +132,104 @@ window.addEventListener("mousemove", function (dets) {
 
 gsap.registerPlugin(ScrollTrigger);
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
+document.addEventListener("DOMContentLoaded", function () {
+  const projectLink = document.querySelector('nav a[href=".project"]');
+  const projectsSection = document.getElementById("projects");
+
+  projectLink.addEventListener("click", function (e) {
     e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior: "smooth",
+    projectsSection.scrollIntoView({ behavior: "smooth" });
+  });
+});
+
+const aboutLink = document.querySelector('nav a[href=".center-part1"]');
+const aboutSection = document.getElementById("center");
+
+aboutLink.addEventListener("click", function (e) {
+  e.preventDefault();
+  aboutSection.scrollIntoView({ behavior: "smooth" });
+});
+
+const contactLink = document.querySelector('nav .part2 a[href=".social1"]');
+
+const footer = document.getElementById("footer");
+
+contactLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  footer.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  gsap.from(".footer-container", {
+    scrollTrigger: {
+      trigger: ".footer-container",
+      start: "top bottom",
+      toggleActions: "play none none none",
+    },
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const center = document.getElementById("center");
+
+  // Function to toggle mobile menu and apply/remove blur
+  function toggleMobileMenu() {
+    mobileMenu.classList.toggle("show");
+    if (mobileMenu.classList.contains("show")) {
+      center.style.filter = "blur(8px)";
+    } else {
+      center.style.filter = "none";
+    }
+  }
+
+  // Function to close mobile menu and remove blur
+  function closeMobileMenu() {
+    mobileMenu.classList.remove("show");
+    center.style.filter = "none";
+  }
+
+  // Toggle mobile menu and blur effect on hamburger click
+  hamburger.addEventListener("click", toggleMobileMenu);
+
+  // Close mobile menu when clicking outside the menu area
+  document.addEventListener("click", function (event) {
+    if (
+      mobileMenu.classList.contains("show") &&
+      !mobileMenu.contains(event.target) &&
+      !hamburger.contains(event.target)
+    ) {
+      closeMobileMenu();
+    }
+  });
+
+  // Close mobile menu when the user scrolls
+  window.addEventListener("scroll", function () {
+    if (mobileMenu.classList.contains("show")) {
+      closeMobileMenu();
+    }
+  });
+
+  // Smooth scroll to section and close mobile menu on link click
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      const targetSection = document.querySelector(this.getAttribute("href"));
+
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+        closeMobileMenu();
+      }
     });
   });
 });
