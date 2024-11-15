@@ -425,6 +425,10 @@ canvas {
     display: none;
   }
 
+  .section1 nav h1 {
+    display: none;
+  }
+
   nav .part2 a {
     display: none;
   }
@@ -516,12 +520,14 @@ canvas {
   .hamburger {
     display: flex;
     gap: 4px;
-    margin-top: 8px;
+    
   }
 
   .hamburger span {
-    width: 24px;
-    height: 2px;
+    top: -10px;
+    right: 20px;
+    width: 28px;
+    height: 4px;
   }
 
   .mobile-menu {
@@ -628,7 +634,7 @@ canvas {
 
   .hamburger span {
     width: 25px;
-    height: 2px;
+    height: 4px;
   }
 
   .mobile-menu {

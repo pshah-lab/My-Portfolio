@@ -4,81 +4,85 @@ window.addEventListener("load", function () {
   document.getElementById("content").style.display = "block";
 });
 
-const canvas = document.getElementById("starsCanvas");
-const ctx = canvas.getContext("2d");
-let starsArray = [];
-let numStars = 300;
+document.addEventListener("DOMContentLoaded", function () {
+  const canvas = document.getElementById("starsCanvas");
+  const ctx = canvas.getContext("2d");
+  let starsArray = [];
+  let numStars = window.innerWidth <= 430 ? 100 : 300; // Adjust star quantity based on screen size
+  let starBrightness = window.innerWidth <= 430 ? 0.3 : 1; // Adjust brightness
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-resizeCanvas();
-
-class Star {
-  constructor(x, y, size, speed) {
-    this.x = x;
-    this.y = y;
-    this.size = size;
-    this.speed = speed;
-    this.angle = Math.random() * 2 * Math.PI;
+  // Resize canvas to fit screen
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
   }
+  resizeCanvas();
 
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
-    ctx.fill();
-    ctx.closePath();
-  }
+  // Star object
+  class Star {
+    constructor(x, y, size, speed) {
+      this.x = x;
+      this.y = y;
+      this.size = size;
+      this.speed = speed;
+      this.opacity = starBrightness; // Set opacity based on screen size
+      this.angle = Math.random() * 2 * Math.PI;
+    }
 
-  update() {
-    this.x += Math.cos(this.angle) * this.speed;
-    this.y += Math.sin(this.angle) * this.speed;
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`; // Adjust brightness with opacity
+      ctx.fill();
+      ctx.closePath();
+    }
 
-    if (
-      this.x > canvas.width ||
-      this.x < 0 ||
-      this.y > canvas.height ||
-      this.y < 0
-    ) {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
+    update() {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+
+      // Reposition star when it goes off-screen
+      if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0) {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+      }
     }
   }
-}
 
-const yearElement = document.getElementById("current-year");
-const currentYear = new Date().getFullYear();
-yearElement.textContent = currentYear;
-
-// Create stars
-function createStars() {
-  for (let i = 0; i < numStars; i++) {
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height;
-    let size = Math.random() * 2;
-    let speed = Math.random() * 0.5 + 0.2;
-    starsArray.push(new Star(x, y, size, speed));
+  // Create stars based on screen size
+  function createStars() {
+    starsArray = [];
+    for (let i = 0; i < numStars; i++) {
+      let x = Math.random() * canvas.width;
+      let y = Math.random() * canvas.height;
+      let size = Math.random() * 2;
+      let speed = Math.random() * 0.5 + 0.2;
+      starsArray.push(new Star(x, y, size, speed));
+    }
   }
-}
 
-// Animate stars
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  starsArray.forEach((star) => {
-    star.update();
-    star.draw();
+  // Animate stars
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    starsArray.forEach((star) => {
+      star.update();
+      star.draw();
+    });
+    requestAnimationFrame(animate);
+  }
+
+  // Initial star creation and animation start
+  createStars();
+  animate();
+
+  // Recreate stars on window resize
+  window.addEventListener("resize", function () {
+    resizeCanvas();
+    numStars = window.innerWidth <= 430 ? 100 : 300; // Adjust quantity on resize
+    starBrightness = window.innerWidth <= 430 ? 0.3 : 1; // Adjust brightness on resize
+    createStars();
   });
-  requestAnimationFrame(animate);
-}
-
-// Start animation
-createStars();
-animate();
-
-// Adjust canvas size when window is resized
-window.addEventListener("resize", resizeCanvas);
+});
 
 var tl = gsap.timeline();
 
