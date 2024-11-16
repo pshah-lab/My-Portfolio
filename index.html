@@ -4,77 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pratham Shah | Portfolio</title>
-    <style>
-      /* Critical CSS for above-the-fold content */
-      body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: rgb(3, 0, 20);
-        color: #fff;
-      }
-      #loader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #030014;
-        z-index: 10;
-      }
-      .spinner {
-        width: 50px;
-        height: 50px;
-        border: 6px solid #ccc;
-        border-top-color: #a855f7;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-      }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-    </style>
-
-    <!-- Load main stylesheet asynchronously -->
-    <link
-      rel="stylesheet"
-      href="style.css"
-      media="print"
-      onload="this.media='all'"
-    />
-
-    <!-- Preload essential resources to prioritize their loading -->
-    <link rel="preload" href="./assets/blackhole.webm" as="video" />
-    <link rel="preload" href="./assets/mainIconsdark.svg" as="image" />
-
-    <!-- Defer non-critical external CSS and JavaScript -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      media="print"
-      onload="this.media='all'"
     />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="loader">
       <div class="spinner"></div>
     </div>
-
+    
     <!-- Content that will be displayed after loading -->
-    <div id="content" style="display: none">
+    <div id="content" style="display: none;">
       <!-- First view content goes here -->
     </div>
     <div id="cursor"></div>
@@ -90,6 +36,7 @@
           <a href=".project">Project</a>
           <a href="#"> Blog</a>
           <a href=".social1">Contact</a>
+        
         </div>
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -133,52 +80,52 @@
 
     <div id="move">
       <div class="marque">
-        <img src="./assets/framer.png" alt="" loading="lazy" />
+        <img src="./assets/framer.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/go.png" alt="" loading="lazy" />
+        <img src="./assets/go.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/LockMain.png" alt="" loading="lazy" />
+        <img src="./assets/LockMain.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/mysql.png" alt="" loading="lazy" />
+        <img src="./assets/mysql.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/next.png" alt="" loading="lazy" />
+        <img src="./assets/next.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/express.png" alt="" loading="lazy" />
+        <img src="./assets/express.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/figma.png" alt="" loading="lazy" />
+        <img src="./assets/figma.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/Firebase.png" alt="" loading="lazy" />
+        <img src="./assets/Firebase.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/html.png" alt="" loading="lazy" />
+        <img src="./assets/html.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/js.png" alt="" loading="lazy" />
+        <img src="./assets/js.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/mysql.png" alt="" loading="lazy" />
+        <img src="./assets/mysql.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/next.png" alt="" loading="lazy" />
+        <img src="./assets/next.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/node-js.png" alt="" loading="lazy" />
+        <img src="./assets/node-js.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/react.png" alt="" loading="lazy" />
+        <img src="./assets/react.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/tailwind.png" alt="" loading="lazy" />
+        <img src="./assets/tailwind.png" alt="" loading="lazy"/>
       </div>
       <div class="marque">
-        <img src="./assets/ts.png" alt="" loading="lazy" />
+        <img src="./assets/ts.png" alt="" loading="lazy"/>
       </div>
     </div>
 
@@ -194,33 +141,27 @@
             <a href="./throttle-animation/index.html" target="_blank"
               >On Hover</a
             >
-            <img src="./assets/hover.png" alt="" loading="lazy" />
+            <img src="./assets/hover.png" alt="" loading="lazy">
           </div>
         </div>
 
         <div class="card">
           <div class="card-content">
             <a href="./WeatherApp/index.html">Weather Site</a>
-            <img
-              src="./assets/weather.png"
-              autoplay
-              muted
-              loop
-              loading="lazy"
-            />
+            <img src="./assets/weather.png" autoplay muted loop loading="lazy" />
           </div>
         </div>
         <div class="card">
           <div class="card-content">
             <a href="./AceCards-main/final flashcard/home.html">AceCards</a>
-            <img src="./assets/AceCards.png" alt="" loading="lazy" />
+            <img src="./assets/AceCards.png" alt="" loading="lazy"/>
           </div>
         </div>
 
         <div class="card" id="crd">
           <div class="card-content">
             <a href="./Coffee/test.html">Coffee</a>
-            <img src="./assets/Coffee.png" alt="#" loading="lazy" />
+            <img src="./assets/Coffee.png" alt="#" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -259,21 +200,13 @@
       integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-      defer
     ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
       integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-      defer
     ></script>
-    <script src="script.js" defer></script>
-    <script>
-      window.addEventListener("load", function () {
-        document.getElementById("loader").style.display = "none";
-        document.getElementById("content").style.display = "block";
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
