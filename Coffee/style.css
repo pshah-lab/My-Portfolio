@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    /* outline: 1px solid red; */
   }
 
   body {
@@ -193,5 +194,9 @@
 
     .menu-grid {
       grid-template-columns: 1fr;
+    }
+
+    .about img{
+      width: 70vw;
     }
   }
