@@ -1,9 +1,3 @@
-window.addEventListener("load", function () {
-  // Hide the loader and display content
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("content").style.display = "block";
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("starsCanvas");
   const ctx = canvas.getContext("2d");
@@ -42,7 +36,12 @@ document.addEventListener("DOMContentLoaded", function () {
       this.y += Math.sin(this.angle) * this.speed;
 
       // Reposition star when it goes off-screen
-      if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0) {
+      if (
+        this.x > canvas.width ||
+        this.x < 0 ||
+        this.y > canvas.height ||
+        this.y < 0
+      ) {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
       }
