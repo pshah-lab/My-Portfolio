@@ -1,8 +1,4 @@
-window.addEventListener("load", function () {
-  // Hide the loader and display content
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("content").style.display = "block";
-});
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("starsCanvas");
