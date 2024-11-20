@@ -42,7 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
       this.y += Math.sin(this.angle) * this.speed;
 
       // Reposition star when it goes off-screen
-      if (this.x > canvas.width || this.x < 0 || this.y > canvas.height || this.y < 0) {
+      if (
+        this.x > canvas.width ||
+        this.x < 0 ||
+        this.y > canvas.height ||
+        this.y < 0
+      ) {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
       }
@@ -250,7 +255,7 @@ function isInstagramInAppBrowser() {
 }
 
 if (isInstagramInAppBrowser()) {
-  // Show a prompt to the user
+ 
   const promptDiv = document.createElement("div");
   promptDiv.style.position = "fixed";
   promptDiv.style.top = "0";
@@ -286,20 +291,45 @@ if (isInstagramInAppBrowser()) {
 
   document.body.appendChild(promptDiv);
 
-  // Button action to redirect to the browser
+  
   document.getElementById("open-browser-btn").addEventListener("click", () => {
     const url = window.location.href;
 
-    // Android: Use `intent:` scheme to suggest opening in a browser
+   
     if (/android/i.test(navigator.userAgent)) {
-      window.location.href = `intent://${url.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end;`;
+      window.location.href = `intent://${url.replace(
+        /^https?:\/\//,
+        ""
+      )}#Intent;scheme=https;package=com.android.chrome;end;`;
     }
-    // iOS: Cannot directly control opening but suggest opening in Safari
+   
     else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
-      alert("Please tap the share button and select 'Open in Safari' to continue.");
+      alert(
+        "Please tap the share button and select 'Open in Safari' to continue."
+      );
     } else {
-      // Fallback for other devices: Open in the same browser (limited)
+     
       window.open(url, "_blank");
     }
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.querySelector(".hero-video");
+
+  if (video) {
+    video.removeAttribute("controls");
+    video.muted = true;
+    video.autoplay = true;
+    video.loop = true;
+    video.playsInline = true;
+
+    video.addEventListener("pause", () => {
+      video.play(); // Prevent pausing
+    });
+
+    video.play().catch((error) => {
+      console.warn("Video autoplay failed:", error);
+    });
+  }
+});
