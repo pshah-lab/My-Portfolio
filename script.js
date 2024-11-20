@@ -244,3 +244,50 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+function isInstagramInAppBrowser() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  return userAgent.includes("Instagram");
+}
+
+if (isInstagramInAppBrowser()) {
+  // Show a prompt to the user
+  const promptDiv = document.createElement("div");
+  promptDiv.style.position = "fixed";
+  promptDiv.style.top = "0";
+  promptDiv.style.left = "0";
+  promptDiv.style.width = "100%";
+  promptDiv.style.height = "100%";
+  promptDiv.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+  promptDiv.style.color = "#fff";
+  promptDiv.style.display = "flex";
+  promptDiv.style.flexDirection = "column";
+  promptDiv.style.justifyContent = "center";
+  promptDiv.style.alignItems = "center";
+  promptDiv.style.zIndex = "10000";
+
+  // Message content
+  promptDiv.innerHTML = `
+    <div style="text-align: center; max-width: 90%; padding: 20px;">
+      <h2 style="font-size: 24px; margin-bottom: 16px;">Open in a Browser</h2>
+      <p style="font-size: 18px; margin-bottom: 24px;">
+        For the best experience, please open this link in <strong>Chrome</strong>, <strong>Safari</strong>, or any other browser.
+      </p>
+      <button style="
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      " id="open-browser-btn">Open in Browser</button>
+    </div>
+  `;
+
+  document.body.appendChild(promptDiv);
+
+  // Button action to guide user to their device's browser
+  document.getElementById("open-browser-btn").addEventListener("click", () => {
+    alert("Use your browser's 'Open in...' feature to continue.");
+  });
+}
