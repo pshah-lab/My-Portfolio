@@ -520,7 +520,6 @@ canvas {
   .hamburger {
     display: flex;
     gap: 4px;
-    
   }
 
   .hamburger span {
@@ -698,5 +697,69 @@ canvas {
 
   .footer-bottom {
     font-size: 0.9rem;
+  }
+}
+
+/* Samsung Galaxy Tab S9 Ultra in Landscape */
+@media only screen and (max-width: 2800px) and (orientation: landscape) {
+  /* Styles that preserve the desktop version but scale down for the Galaxy Tab S9 Ultra */
+  body {
+    font-size: 1.2rem;
+  }
+
+  nav {
+    padding: 15px 60px;
+  }
+  nav h1 span {
+    font-size: 3rem;
+  }
+
+  nav h1 {
+    font-size: 2rem;
+  }
+
+  nav .part2 a {
+    font-size: 2.5rem;
+    gap: 4rem;
+  }
+
+  .center-part1 h1 {
+    font-size: 5rem;
+  }
+
+  .center-part1 p {
+    font-size: 2.5rem;
+    padding: 6rem 0;
+  }
+
+  .card-container {
+    gap: 5rem;
+  }
+
+  .card {
+    width: 40%;
+    height: 60%;
+  }
+  .card .card-content a {
+    font-size: 3rem;
+    padding: 2rem;
+  }
+
+  .project h1 {
+    font-size: 5rem;
+    padding-bottom: 3.5rem;
+  }
+  .project {
+    margin-top: 200px;
+  }
+
+  .footer-container {
+    padding: 30px;
+    font-size: 2.5rem;
+  }
+
+  .footer-section h1 {
+    font-size: 4rem;
+    padding-bottom: 2rem;
   }
 }

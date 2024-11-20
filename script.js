@@ -243,3 +243,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const cursor = document.getElementById("cursor");
+
+  // Function to show the custom cursor when a stylus or pen is detected
+  function showCursor(event) {
+    if (event.pointerType === "pen") {
+      cursor.style.display = "block";
+      moveCursor(event); // Initialize cursor position
+    }
+  }
+
+  // Function to hide cursor on touch or mouse input
+  function hideCursor(event) {
+    if (event.pointerType !== "pen") {
+      cursor.style.display = "none";
+    }
+  }
+
+  // Move cursor position when using pen
+  function moveCursor(event) {
+    if (event.pointerType === "pen") {
+      cursor.style.left = `${event.clientX}px`;
+      cursor.style.top = `${event.clientY}px`;
+    }
+  }
+
+  // Show and move cursor on pen use
+  window.addEventListener("pointerdown", showCursor);
+  window.addEventListener("pointermove", moveCursor);
+
+  // Hide cursor on non-pen events (touch or mouse)
+  window.addEventListener("pointerdown", hideCursor);
+});
