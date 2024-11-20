@@ -286,8 +286,20 @@ if (isInstagramInAppBrowser()) {
 
   document.body.appendChild(promptDiv);
 
-  // Button action to guide user to their device's browser
+  // Button action to redirect to the browser
   document.getElementById("open-browser-btn").addEventListener("click", () => {
-    alert("Use your browser's 'Open in...' feature to continue.");
+    const url = window.location.href;
+
+    // Android: Use `intent:` scheme to suggest opening in a browser
+    if (/android/i.test(navigator.userAgent)) {
+      window.location.href = `intent://${url.replace(/^https?:\/\//, '')}#Intent;scheme=https;package=com.android.chrome;end;`;
+    }
+    // iOS: Cannot directly control opening but suggest opening in Safari
+    else if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+      alert("Please tap the share button and select 'Open in Safari' to continue.");
+    } else {
+      // Fallback for other devices: Open in the same browser (limited)
+      window.open(url, "_blank");
+    }
   });
 }
