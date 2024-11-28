@@ -8,8 +8,22 @@ document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("starsCanvas");
   const ctx = canvas.getContext("2d");
   let starsArray = [];
-  let numStars = window.innerWidth <= 430 ? 100 : 300; // Adjust star quantity based on screen size
-  let starBrightness = window.innerWidth <= 430 ? 0.3 : 1; // Adjust brightness
+  let numStars;
+  let starBrightness;
+  
+  if (window.innerWidth <= 430) {
+    numStars = 100;
+    starBrightness = 0.3;
+  } else if (window.innerWidth <= 480) {
+    numStars = 150;
+    starBrightness = 0.5;
+  } else if (window.innerWidth <= 568) {
+    numStars = 200;
+    starBrightness = 0.5;
+  } else {
+    numStars = 300; // Default for larger screens
+    starBrightness = 1; // Default brightness
+  }
 
   // Resize canvas to fit screen
   function resizeCanvas() {
