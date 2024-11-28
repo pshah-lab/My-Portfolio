@@ -331,3 +331,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// Function to detect if the device is a mobile browser
+function isMobileBrowser() {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+// Function to detect if the user is in an in-app browser
+function isInAppBrowser() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  return userAgent.includes("Instagram") || userAgent.includes("LinkedIn");
+}
+
+// Show a one-time popup on mobile browsers or in-app browsers
+(function showPopupOnce() {
+  const popupShown = localStorage.getItem("popupShown");
+  const popup = document.getElementById("mobile-popup");
+
+  // Check conditions for showing the popup
+  if (!popupShown && (isMobileBrowser() || isInAppBrowser())) {
+    popup.style.display = "flex";
+
+    // Close button action
+    document.getElementById("popup-close-btn").addEventListener("click", function () {
+      popup.style.display = "none";
+      localStorage.setItem("popupShown", "true"); // Save state to localStorage
+    });
+  }
+})();

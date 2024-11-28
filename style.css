@@ -357,6 +357,44 @@ canvas {
   color: #aaa;
 }
 
+#mobile-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  display: none; /* Hidden initially */
+}
+#mobile-popup h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+#mobile-popup p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+#mobile-popup button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#mobile-popup button:hover {
+  background-color: #0056b3;
+}
+
 @media (max-width: 1024px) {
   #cursor {
     display: none;
