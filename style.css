@@ -603,6 +603,72 @@ canvas {
   }
 }
 
+@media (max-width: 568px) {
+  /* Navbar */
+  nav {
+    flex-direction: row; /* Adjust navbar items horizontally */
+    justify-content: space-between;
+    padding: 10px 15px;
+  }
+
+  nav h1 {
+    font-size: 1.6rem; /* Slightly larger logo/title */
+  }
+
+  nav a {
+    font-size: 1rem;
+    margin: 0 5px;
+  }
+
+  /* Hero Section */
+  .hero-video {
+    height: auto;
+    width: 100%;
+  }
+
+  .center {
+    padding: 150px 20px;
+    text-align: center;
+  }
+
+  .center-part1 h1 {
+    font-size: 2.5rem;
+  }
+
+  .center-part1 p {
+    font-size: 1.2rem;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* Cards */
+  .card-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Footer */
+  .footer-container {
+    padding: 20px;
+    margin-top: 150px;
+  }
+
+  .social1 {
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    font-size: 0.9rem;
+  }
+}
+
 @media (max-width: 480px) {
   .section,
   .hero-video {
