@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
     />
 
     <meta
@@ -28,9 +28,7 @@
     </div>
 
     <!-- Content that will be displayed after loading -->
-    <div id="content" style="display: none">
-   
-    </div>
+    <div id="content" style="display: none"></div>
     <div id="cursor"></div>
     <canvas id="starsCanvas"></canvas>
 
@@ -66,7 +64,15 @@
         loop
         playsinline
         class="hero-video"
-      ></video>
+      >
+        <track
+          src="./assets/captions.vtt"
+          kind="subtitles"
+          srclang="en"
+          label="English"
+          default
+        />
+      </video>
 
       <div id="mobile-popup">
         <h1>Use a larger display for the best experience!</h1>
@@ -178,8 +184,6 @@
             <img src="./assets/AceCards.png" alt="" loading="lazy" />
           </div>
         </div>
-
-      
       </div>
     </section>
     <footer class="footer-container" id="footer">
